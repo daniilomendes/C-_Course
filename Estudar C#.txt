@@ -1,0 +1,12 @@
+------------------------------------Estudar------------------------------------
+fundamentos c#
+
+fundamentos orientação de objetos
+
+fundamentos do SQL server
+
+fundamentos entity framework
+
+http Factory
+
+rabbit mq

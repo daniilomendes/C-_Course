@@ -1,0 +1,238 @@
+Fundamentos C#
+
+- Por que utilizar C#?
+	Tipada, compilada e gerenciada
+	Linguagem completa
+	Maturidade
+	Mercado
+
+- C# é a linguagem
+
+Runtime e SDK
+
+-------------------------------------Comandos-------------------------------------
+---------------------------------------Tipos--------------------------------------
+Criar projeto:  dotnet new console
+verificar: ls
+baixar dependencias: dotnet restore
+compilação: dotnet build
+limpar cache: dotnet clean
+executar: dotnet run
+
+------------------------------------Importações-----------------------------------
+utilizamos a palavra chave using
+organiza o código em pastas e namespaces
+
+-------------------------------------Variáveis------------------------------------
+armazena informação
+pode ser alterado
+utiliza um tipo ou palavra reservada Variáveiso tipo sempre vem antes do nome
+pode inicializar com valores
+
+-------------------------------------Constantes-----------------------------------
+armazena informação
+não podem ser alteradas
+ao criar, obrigatório definir um valores
+palavra reservada const
+sempre em maiúsculo, separado por "_"
+
+Ex.: const int age;
+
+---------------------------------------Tipos--------------------------------------
+Tipos simples - Enumeradores(Enums) - Estruturas(Estructs) - Tipos Nulos(Nullable)
+
+byte: representa um byte ou 8 bit
+sbyte: aceita valores negativos
+
+Ex.: byte myBiyte = 250;
+
+short/ushort	(16 bit)
+int/uint		(32 bit)
+long/ulong		(64 bit)
+
+Ex.: int myIntNumber = 2500;
+
+float			(32 bit)	(Notação F)
+double			(64 bit)	
+decimal			(128 bit)	(Notação M)
+
+Ex.: float myFloatNumber = 2.500;
+
+float			(32 bit)	(Notação F)
+double			(64 bit)	
+decimal			(128 bit)	(Notação M)
+
+Ex.: float myFloatNumber = 2.500f;
+Ex.: double myDoubleNumber = 22.500;
+Ex.: decimal myDecimalNumber = 25.500m;
+
+bool			(8 bit)
+
+Ex.: bool isReal = false;
+
+char			(16 bit)
+
+Ex.: char key = 'a';
+
+string			(depende do tamanho da string)
+
+Ex.: string info = "lorem impsum";
+
+var substitui o nome de um tipo, porém aquele tipo não pode ser mudado
+
+Ex.: var info = "lorem impsum";
+
+object é um tipo desconhecido, pode passar qualquer tipo para ele
+
+Ex.: object info = "lorem impsum";
+
+null: todo tipo pode receber o valor null se o tipo for marcado como Nullable
+
+Ex.: int? age = null;
+
+Alias é um apelido que todo tipo tem
+
+Todo tipo tem um valor default
+
+-------------------------------------Conversão------------------------------------
+Implícita e explícita
+
+Implícita: são conversões que podem ser executadas apenas com passagem de dados e tipos compatíveis  
+Explícita: Ocorre quando os tipos não são compatíveis, é dada pelo uso do tipo entre parênteses antes da atribuição 
+
+Parse: Método presente em todo tipo primitivo, usado para converter um caractere ou string para um tipo qualquer
+Ex.: int inteirou = int.Parse("100")
+
+Convert: Similar ao parse, permite converter vários tipos de valor, não apenas string
+Ex.: int inteirou = Conver.ToInt32("100")
+
+--------------------------------------Operações-------------------------------------
+Aritméticas: + | - | * | /
+
+Atribuição: = | += | -= | *= | /=
+
+Comparação: == | != | > | < | <= | >=
+
+Lógicos: && | || | !(Not ou negação)
+
+--------------------------------------Condicional-------------------------------------
+if: se ou caso alguma condição seja atendida, utilizada para tomada de decisões
+else if: nova condição
+else: última condição
+
+switch: utilizado quando temos muitas decisões, executado em cascata, para manualmente com break e existe o dado default
+switch (valor)
+{
+	case 1: condição 1; break;
+	case 2: condição 2; break;
+	case 3: condição 3; break;
+	default: condição default; break;
+}
+
+--------------------------------------Laços de repetição-------------------------------------
+for: "para", formado por 3 partes(contador, condição e incremento)
+
+for (var i = 0; i <= 0; i++)
+{
+	função;
+}
+
+while: "enquanto", executa enquanto uma condição é verdadeira
+
+int valor = 5;
+while (valor <=5)
+{
+	valor++;
+}
+
+do/while: "faça", realiza uma ação enquanto...
+exige apenas uma condição, e checa a condição depois de executar
+
+int valor = 5;
+do 
+{
+	valor--
+} while (valor <=5);
+
+--------------------------------------Funções-------------------------------------
+Segmentar o programa em funções
+
+static void Main(string[] args)
+{
+	MeuMetodo("Teste");
+	var nome = RetornaNome("teste", "teste");
+}
+
+static void MeuMetodo(string parametro)
+{
+	Console.WriteLine(parametro);
+}
+
+static string RetornaNome(string nome, string sobrenome)
+{
+	return nome + " " + sobrenome;
+}
+
+-----------------------------Value Types e Reference Types----------------------------
+A memória é dividida em duas partes, heap e stack
+heap armazena os dados e a stack armazena as referências para os dados
+
+--------------------------------------Structs-------------------------------------
+tipos de dado estruturado
+é apenas a estrutura
+tipo de valor
+anatomia de uma estrura normalmente é:
+
+struct Product
+{
+	// Propriedades e métodos
+	public int Id;
+	public string Title;
+	public float Price;
+
+	public float PriceInDolar(float dolar)
+	{
+		return Price * dolar;
+	}
+
+	public Product(int Id, string title, float Price)
+	{
+		Id = id;
+		Title = title;
+		Price = price;
+	}
+}
+
+static void Main(string[] args)
+{
+	var product = new Product(1, "Produto 1", 128.75f);
+}
+
+--------------------------------------Enumeradores-------------------------------------
+Usado para fornecer uma melhor visualização do código
+substituem o uso de inteiros
+usados em listas curtas
+dados fixos
+sempre em maiúsculo
+inicia com "E"
+
+enum EEStadoCivil
+{
+	// Enumeradores
+	Solteiro = 1,
+	Casado = 2,
+	Divorciado = 3,
+}
+
+struct Client
+{
+	// Propriedades e métodos
+	public int Id;
+	public string Nome;
+	public EEStadoCivil EStadoCivil;
+}
+
+static void Main(string[] args)
+{
+	var client = new Client(1, "João", EEStadoCivil.Casado);
+}
