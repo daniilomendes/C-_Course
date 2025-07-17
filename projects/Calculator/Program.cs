@@ -35,7 +35,7 @@
         {
             Console.Clear();
             Console.WriteLine("Obrigado por usar a calculadora :)\nVolte sempre!");
-            System.Environment.Exit(0);
+            Environment.Exit(0);
         }
 
         static (float valueOne, float valueTwo) ChooseValues()
